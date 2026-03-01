@@ -366,18 +366,20 @@
       <div class="admissions-form-wrap reveal">
         <div class="admission-form-card">
           <h3><i class="fas fa-paper-plane"></i> Admission Enquiry</h3>
-          <form id="admissionForm" class="admission-form">
+          <!-- Updated form with Web3Forms action, method, access key, and name attributes -->
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="086e4d6a-ad3a-45de-b356-895bf821324a">
             <div class="form-group">
-              <input type="text" id="parentName" placeholder="Parent's Full Name" required />
+              <input type="text" id="parentName" name="parent_name" placeholder="Parent's Full Name" required />
             </div>
             <div class="form-group">
-              <input type="text" id="childName" placeholder="Child's Full Name" required />
+              <input type="text" id="childName" name="child_name" placeholder="Child's Full Name" required />
             </div>
             <div class="form-group">
-              <input type="tel" id="phone" placeholder="Phone Number" required />
+              <input type="tel" id="phone" name="phone" placeholder="Phone Number" required />
             </div>
             <div class="form-group">
-              <select id="classApplied" required>
+              <select id="classApplied" name="class_applied" required>
                 <option value="" disabled selected>Class Applying For</option>
                 <option>Nursery</option>
                 <option>KG</option>
@@ -396,10 +398,10 @@
               </select>
             </div>
             <div class="form-group">
-              <input type="email" id="emailField" placeholder="Email Address" />
+              <input type="email" id="emailField" name="email" placeholder="Email Address" />
             </div>
             <div class="form-group">
-              <textarea id="message" placeholder="Any additional message..." rows="3"></textarea>
+              <textarea id="message" name="message" placeholder="Any additional message..." rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-gold full-width">Submit Enquiry <i class="fas fa-paper-plane"></i></button>
           </form>
