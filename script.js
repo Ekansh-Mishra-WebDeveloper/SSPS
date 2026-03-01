@@ -5,16 +5,29 @@
 'use strict';
 
 /* ---------- PRELOADER ---------- */
-window.addEventListener('load', function () {
-  const preloader = document.getElementById('preloader');
-  if (!preloader) return;
-  setTimeout(function () {
-    preloader.classList.add('hidden');
-    setTimeout(function () {
-      preloader.style.display = 'none';
-    }, 700);
-  }, 2200);
-});
+/* ---------- PRELOADER ---------- */
+// (function() {
+//   const preloader = document.getElementById('preloader');
+//   if (!preloader) return;
+
+//   function hidePreloader() {
+    // Add a tiny delay to allow the browser to paint (optional)
+  //   setTimeout(() => {
+  //     preloader.classList.add('hidden');
+  //     setTimeout(() => {
+  //       preloader.style.display = 'none';
+  //     }, 700); // match CSS transition duration
+  //   }, 100);
+  // }
+
+  // If the page is already loaded (unlikely), hide immediately
+//   if (document.readyState === 'complete') {
+//     hidePreloader();
+//   } else {
+//     // Wait for the entire page (including images) to load
+//     window.addEventListener('load', hidePreloader);
+//   }
+// })();
 
 /* ---------- DARK MODE ---------- */
 (function () {
