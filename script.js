@@ -308,25 +308,47 @@ window.addEventListener('load', function () {
   }
 })();
 
-/* ---------- ADMISSION FORM ---------- */
+/* ---------- ADMISSION FORM (REAL SUBMISSION) ---------- */
 (function () {
   const form = document.getElementById('admissionForm');
-  const success = document.getElementById('formSuccess');
+  const successDiv = document.getElementById('formSuccess');
 
   if (!form) return;
-  form.addEventListener('submit', function (e) {
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-    btn.disabled = true;
-    setTimeout(function () {
-      form.style.display = 'none';
-      if (success) success.style.display = 'block';
-    }, 1800);
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+    submitBtn.disabled = true;
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Hide form, show success message
+        form.style.display = 'none';
+        successDiv.style.display = 'block';
+        form.reset(); // optional
+      } else {
+        alert('Submission failed: ' + (data.message || 'Unknown error'));
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    } catch (error) {
+      alert('Network error. Please try again.');
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+    }
   });
 })();
-
 /* ---------- NEWSLETTER FORM ---------- */
 (function () {
   const form = document.getElementById('newsletterForm');
