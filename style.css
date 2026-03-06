@@ -1,5 +1,5 @@
 /* ============================================================
-   Sir Syed Public School â€” Premium Website Styles
+   Sir Syed Public School — Premium Website Styles (Mobile Optimized)
    Color Theme: Green + Gold
    ============================================================ */
 
@@ -54,7 +54,7 @@ body {
   font-family: var(--font-body);
   background: var(--body-bg);
   color: var(--text-dark);
-  line-height: 1.7;
+  line-height: 1.6;
   overflow-x: hidden;
   transition: background var(--transition), color var(--transition);
 }
@@ -132,19 +132,15 @@ ul { list-style: none; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* ---------- PRELOADER ---------- */
-/* .preloader-icon {
-  margin-bottom: 16px;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 16px;
-}
-
-.preloader-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-  animation: pulseIcon 1.2s ease-in-out infinite;
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: var(--green-dark);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease;
 }
 .preloader.hidden { opacity: 0; pointer-events: none; }
 .preloader-inner { text-align: center; color: #fff; }
@@ -153,7 +149,7 @@ ul { list-style: none; }
 .preloader-name { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; margin-bottom: 24px; }
 .preloader-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.2); border-radius: 2px; margin: 0 auto; overflow: hidden; }
 .preloader-fill { height: 100%; width: 0; background: var(--gold); border-radius: 2px; animation: loadBar 2s ease forwards; }
-@keyframes loadBar { to { width: 100%; } } */
+@keyframes loadBar { to { width: 100%; } }
 
 /* ---------- TOP BAR ---------- */
 .top-bar {
@@ -185,7 +181,6 @@ ul { list-style: none; }
 .dark-toggle:hover { background: var(--gold); border-color: var(--gold); color: #000; }
 
 /* ---------- NAVBAR ---------- */
-/* ---------- NAVBAR ---------- */
 .navbar {
   position: sticky;
   top: 0;
@@ -196,66 +191,15 @@ ul { list-style: none; }
   transition: box-shadow var(--transition), background var(--transition);
 }
 .navbar.scrolled { box-shadow: var(--shadow-md); }
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px;
-}
-.nav-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 4px;
-}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+.nav-logo { display: flex; align-items: center; gap: 12px; }
 .logo-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: transparent;
-  flex-shrink: 0;
-}
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.2;
-}
-.logo-name {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text-dark);
-}
-.logo-tagline {
-  font-size: 0.68rem;
-  color: var(--green);
-  font-style: italic;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}.footer-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-/* ... rest of nav-link styles remain unchanged ... */
-
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  width: 44px; height: 44px;
+  background: var(--green);
+  color: var(--gold);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
 }
 .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
 .logo-name { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--text-dark); }
@@ -542,21 +486,8 @@ ul { list-style: none; }
 .ac-range { color: var(--green); font-size: 0.8rem; font-weight: 600; margin-bottom: 14px; }
 .academic-card ul { display: flex; flex-direction: column; gap: 6px; }
 .academic-card ul li { font-size: 0.87rem; color: var(--text-mid); padding-left: 14px; position: relative; }
-.academic-card ul li {
-  font-size: 0.87rem;
-  color: var(--text-mid);
-  padding-left: 14px;
-  position: relative;
-}
-
-.academic-card ul li::before {
-  content: '\203A';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-weight: 700;
-  font-size: 1.1em;
-}
+/* Fixed bullet character */
+.academic-card ul li::before { content: '\203A'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
 .age-badge {
   display: inline-block;
   margin-top: 16px;
@@ -859,26 +790,9 @@ ul { list-style: none; }
   padding: 72px 0 0;
 }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
-.footer-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.footer-logo img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.footer-motto {
-  color: var(--gold-light);
-  font-style: italic;
-  font-size: 0.85rem;
-  margin: 4px 0 12px 0;  /* reduced top margin to bring it closer to school name */
-}
+.footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; color: #fff; font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; }
+.footer-logo i { color: var(--gold); font-size: 1.4rem; }
+.footer-tagline { color: var(--gold-light); font-style: italic; font-size: 0.85rem; margin-bottom: 12px; }
 .footer-col p { font-size: 0.87rem; line-height: 1.75; margin-bottom: 8px; }
 .footer-col p i { color: var(--gold); margin-right: 6px; }
 .footer-col p a { color: rgba(255,255,255,0.75); transition: color var(--transition); }
@@ -898,12 +812,8 @@ ul { list-style: none; }
 .footer-col h4 { font-family: var(--font-heading); color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .footer-col ul li { margin-bottom: 8px; }
 .footer-col ul li a { font-size: 0.87rem; color: rgba(255,255,255,0.7); transition: color var(--transition); display: flex; align-items: center; gap: 6px; }
-.footer-col ul li a::before {
-  content: '\203A';
-  color: var(--gold);
-  font-weight: 700;
-  margin-right: 6px;
-}
+/* Fixed bullet character */
+.footer-col ul li a::before { content: '\203A'; color: var(--gold); font-weight: 700; margin-right: 6px; }
 .footer-col ul li a:hover { color: var(--gold); }
 .newsletter { margin-top: 20px; }
 .newsletter h5 { color: #fff; font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; }
@@ -969,13 +879,14 @@ ul { list-style: none; }
 .scroll-top:hover { background: var(--green-light); }
 
 /* ============================================================
-   RESPONSIVE BREAKPOINTS
+   RESPONSIVE BREAKPOINTS (Mobile Optimized)
    ============================================================ */
 @media (max-width: 1100px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .academics-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
+
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-float-img { right: 0; bottom: -20px; width: 150px; height: 120px; }
@@ -986,59 +897,197 @@ ul { list-style: none; }
   .notices-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-cards { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 768px) {
+  /* Hide top bar left section on mobile */
   .top-bar-left { display: none; }
-  .hamburger { display: flex; }
+
+  /* Container padding reduced */
+  .container { padding: 0 16px; }
+
+  /* Navbar mobile adjustments */
+  .nav-inner { padding: 10px 16px; }
+  .logo-name { font-size: 0.9rem; }
+  .logo-tagline { font-size: 0.6rem; }
+  .hamburger {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .hamburger span { width: 24px; }
+
   .nav-links {
     position: fixed;
-    top: 0; right: -100%;
-    width: 280px; height: 100vh;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
     background: var(--card-bg);
     flex-direction: column;
-    padding: 80px 24px 24px;
-    gap: 4px;
+    padding: 80px 16px 24px;
+    gap: 8px;
     box-shadow: var(--shadow-lg);
     transition: right 0.4s ease;
-    align-items: flex-start;
+    align-items: stretch;
     z-index: 999;
   }
   .nav-links.open { right: 0; }
-  .nav-link { width: 100%; padding: 12px 16px; }
-  .hero-content { padding: 0 24px; }
-  .gallery-grid { columns: 2; }
-  .academics-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .section { padding: 60px 0; }
+  .nav-link {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+  .nav-link::after { display: none; }
+
+  /* HERO SECTION – COMPACT MOBILE */
+  .hero-content {
+    padding: 0 16px;
+    text-align: center;
+  }
+  .hero-badge {
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    margin-bottom: 8px;
+  }
+  .hero-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .hero-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+  .hero-cta {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-cta .btn {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* Section padding reduced */
+  .section { padding: 40px 0; }
+  .section-header { margin-bottom: 24px; }
+  .section-title { font-size: 1.8rem; }
+  .section-sub { font-size: 0.9rem; margin-top: 4px; }
+
+  /* Stats cards – tighter and no jitter */
+  .stats-grid { gap: 12px; }
+  .stat-card { padding: 20px 10px; }
+  .stat-number {
+    font-size: 2rem;
+    min-width: 6ch;        /* prevents jitter during counter animation */
+    white-space: nowrap;
+    text-align: center;
+  }
+  .stat-label { font-size: 0.85rem; }
+
+  /* Gallery – 2 columns */
+  .gallery-grid { columns: 2; gap: 12px; }
+
+  /* Academics – single column with reduced padding */
+  .academics-grid { grid-template-columns: 1fr; gap: 16px; }
+  .academic-card { padding: 24px 16px; }
+  .ac-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 12px; }
+  .academic-card h3 { font-size: 1rem; }
+  .ac-range { font-size: 0.75rem; }
+  .academic-card ul li { font-size: 0.8rem; padding-left: 12px; }
+  .age-badge { font-size: 0.7rem; padding: 2px 10px; }
+
+  /* Admissions */
+  .admissions-grid { gap: 32px; }
+  .admission-highlights li { font-size: 0.9rem; }
+  .timeline-step { gap: 12px; padding-bottom: 16px; }
+  .ts-num { width: 32px; height: 32px; font-size: 0.8rem; }
+  .ts-text h4 { font-size: 0.9rem; }
+  .ts-text p { font-size: 0.8rem; }
+  .admission-form-card { padding: 24px; }
+  .admission-form-card h3 { font-size: 1.2rem; margin-bottom: 20px; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea { padding: 10px 14px; font-size: 0.85rem; }
+
+  /* Facilities */
+  .facilities-grid { gap: 16px; }
+  .facility-img-wrap { height: 160px; }
+  .facility-body { padding: 24px 16px 16px; }
+  .facility-body h3 { font-size: 1rem; }
+  .facility-body p { font-size: 0.8rem; }
+  .facility-icon { width: 36px; height: 36px; font-size: 0.9rem; bottom: -16px; right: 16px; }
+
+  /* Gallery filters */
+  .gallery-filters { gap: 8px; margin-bottom: 24px; }
+  .gf-btn { padding: 6px 16px; font-size: 0.8rem; }
+
+  /* Notice board */
+  .notices-grid { gap: 16px; }
+  .notice-card { padding: 20px; }
+  .notice-date { font-size: 0.7rem; }
+  .notice-card h4 { font-size: 0.95rem; }
+  .notice-card p { font-size: 0.8rem; }
+  .notice-link { font-size: 0.8rem; }
+
+  /* Student corner */
+  .achievement-badges { gap: 8px; margin-bottom: 32px; }
+  .badge-item { padding: 6px 16px; font-size: 0.8rem; }
+  .testi-card { padding: 24px 20px; }
+  .testi-stars { font-size: 1rem; margin-bottom: 12px; }
+  .testi-card > p { font-size: 0.95rem; margin-bottom: 20px; }
+  .testi-author { gap: 10px; }
+  .testi-avatar { width: 40px; height: 40px; font-size: 1rem; }
+  .testi-author strong { font-size: 0.85rem; }
+  .testi-author span { font-size: 0.7rem; }
+  .testi-nav { gap: 12px; margin-top: 20px; }
+  .testi-btn { width: 36px; height: 36px; font-size: 0.8rem; }
+  .testi-dot { width: 6px; height: 6px; }
+
+  /* Contact */
+  .contact-cards { gap: 16px; margin-bottom: 24px; }
+  .contact-card { padding: 20px 16px; }
+  .cc-icon { width: 44px; height: 44px; font-size: 1.1rem; margin-bottom: 10px; }
+  .contact-card h4 { font-size: 0.9rem; }
+  .contact-card p { font-size: 0.8rem; }
+  .map-wrap iframe { height: 280px; }
+
+  /* Footer */
+  .footer { padding: 48px 0 0; }
+  .footer-grid { gap: 32px; margin-bottom: 32px; }
+  .footer-logo { gap: 8px; }
+  .footer-logo i { font-size: 1.2rem; }
+  .footer-logo span { font-size: 1rem; }
+  .footer-tagline { font-size: 0.8rem; margin-bottom: 8px; }
+  .footer-col p { font-size: 0.8rem; line-height: 1.6; }
+  .footer-socials a { width: 32px; height: 32px; font-size: 0.8rem; }
+  .footer-col h4 { font-size: 0.95rem; margin-bottom: 12px; }
+  .footer-col ul li a { font-size: 0.8rem; }
+  .newsletter h5 { font-size: 0.85rem; }
+  .newsletter-form input { padding: 8px 12px; font-size: 0.8rem; }
+  .newsletter-form button { padding: 8px 14px; }
+  .footer-bottom { padding: 16px 0; font-size: 0.7rem; }
+
+  /* Floating buttons */
+  .float-btn { right: 16px; padding: 10px 12px; font-size: 0.8rem; }
+  .float-whatsapp { bottom: 80px; }
+  .float-call { bottom: 24px; }
+
+  /* Scroll to top */
+  .scroll-top { left: 16px; bottom: 24px; width: 40px; height: 40px; font-size: 0.9rem; }
 }
+
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .hero-title { font-size: 1.8rem; }
+  .hero-title { font-size: 1.6rem; }
   .gallery-grid { columns: 1; }
   .notices-grid { grid-template-columns: 1fr; }
   .contact-cards { grid-template-columns: 1fr; }
   .facilities-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .float-btn { right: 16px; }
-  .scroll-top { left: 16px; }
-  .testi-card { padding: 28px 20px; }
-  .admission-form-card { padding: 24px; }
-  .principal-right { padding: 28px; }
-}
-.principal-avatar {
-  width: 100px; height: 100px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.12);
-  border: 3px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  overflow: hidden; /* ensures image stays inside circle */
-}
-
-.principal-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  .testi-card { padding: 20px 16px; }
+  .admission-form-card { padding: 20px; }
+  .principal-right { padding: 20px; }
 }
