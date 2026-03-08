@@ -796,6 +796,14 @@ ul { list-style: none; }
   color: rgba(255,255,255,0.8);
   padding: 72px 0 0;
 }
+/* Designer credit hover effect */
+.footer-bottom a {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+.footer-bottom a:hover {
+  color: var(--gold); /* uses your existing gold color variable */
+}
 .footer-grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -1168,6 +1176,7 @@ ul { list-style: none; }
 
   /* Footer – only adjust spacing, no duplicate rules */
   .footer { padding: 48px 0 0; }
+  
   .footer-grid { gap: 32px; margin-bottom: 32px; }
   .footer-logo img { width: 35px; } /* slightly smaller on mobile if desired */
   .footer-logo span { font-size: 1rem; }
