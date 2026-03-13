@@ -11,16 +11,16 @@
 //   if (!preloader) return;
 
 //   function hidePreloader() {
-    // Add a tiny delay to allow the browser to paint (optional)
-  //   setTimeout(() => {
-  //     preloader.classList.add('hidden');
-  //     setTimeout(() => {
-  //       preloader.style.display = 'none';
-  //     }, 700); // match CSS transition duration
-  //   }, 100);
-  // }
+// Add a tiny delay to allow the browser to paint (optional)
+//   setTimeout(() => {
+//     preloader.classList.add('hidden');
+//     setTimeout(() => {
+//       preloader.style.display = 'none';
+//     }, 700); // match CSS transition duration
+//   }, 100);
+// }
 
-  // If the page is already loaded (unlikely), hide immediately
+// If the page is already loaded (unlikely), hide immediately
 //   if (document.readyState === 'complete') {
 //     hidePreloader();
 //   } else {
@@ -74,6 +74,16 @@
       hamburger.classList.toggle('open');
       navLinks.classList.toggle('open');
     });
+
+    // Close button
+    var navCloseBtn = document.getElementById('navCloseBtn');
+    if (navCloseBtn) {
+      navCloseBtn.addEventListener('click', function () {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    }
+
     // Close on link click
     navLinkItems.forEach(function (link) {
       link.addEventListener('click', function () {
